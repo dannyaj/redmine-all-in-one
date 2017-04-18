@@ -1,0 +1,55 @@
+[groups]
+administrators = redmine
+developer_team = redmine, danny, skyman, chungshu, jerry, shawnlin, edison, liwei, oscar
+nexstack_team = danny, skyman, jerry
+ewms_team = frank, jeff, hausen, liwei, belinda, alan, oscar
+nussfis_team = frank, alan
+nbjplm_team = frank, liwei
+it_management_team = david
+warroom_team = chungshu, jerry, edison, morpheush
+
+[/]
+* = rw
+@administrators = rw
+
+[my_repository:/]
+@developer_team = rw
+
+[warroom_repository:/]
+@developer_team = rw
+
+[nexstack_repository:/]
+@nexstack_team = rw
+
+[ewms_repository:/]
+@ewms_team = rw
+
+[nussfis_repository:/]
+@nussfis_team = rw
+
+[nbjplm_repository:/]
+@nbjplm_team = rw
+
+[warroomdemo_repository:/]
+@developer_team = rw
+
+[docker_repository:/]
+@developer_team = rw
+
+[itdevops_repository:/]
+@developer_team = rw
+
+[bendon_system_repository:/]
+@developer_team = rw
+
+[mq_repository:/]
+@developer_team = rw
+
+[it_repository:/]
+@it_management_team = rw
+
+[war_room_repository:/]
+@warroom_team = rw
+
+[test:/]
+* = rw
