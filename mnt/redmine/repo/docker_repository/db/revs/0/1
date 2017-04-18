@@ -1,0 +1,65 @@
+id: 2-1.0.r1/0
+type: dir
+count: 0
+cpath: /exampledocker/branches
+copyroot: 0 /
+
+id: 4-1.0.r1/80
+type: dir
+count: 0
+cpath: /exampledocker/tags
+copyroot: 0 /
+
+id: 5-1.0.r1/157
+type: dir
+count: 0
+cpath: /exampledocker/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 14
+dir 2-1.0.r1/0
+K 4
+tags
+V 15
+dir 4-1.0.r1/80
+K 5
+trunk
+V 16
+dir 5-1.0.r1/157
+END
+ENDREP
+id: 0-1.0.r1/348
+type: dir
+count: 0
+text: 1 236 99 0 542761cabef7c7124ff74c191a026632
+cpath: /exampledocker
+copyroot: 0 /
+
+PLAIN
+K 13
+exampledocker
+V 16
+dir 0-1.0.r1/348
+END
+ENDREP
+id: 0.0.r1/529
+type: dir
+pred: 0.0.r0/17
+count: 1
+text: 1 471 45 0 ac3d9b523ba7f2fba2be042cefcb3933
+cpath: /
+copyroot: 0 /
+
+_0.0.t0-0 add-dir false false /exampledocker
+
+_2.0.t0-0 add-dir false false /exampledocker/branches
+
+_4.0.t0-0 add-dir false false /exampledocker/tags
+
+_5.0.t0-0 add-dir false false /exampledocker/trunk
+
+
+529 653
