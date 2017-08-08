@@ -53,11 +53,13 @@ RUN gpg --keyserver hkp://pgp.mit.edu --recv-keys 409B6B1796C275462A1703113804BB
 RUN curl -sSL https://get.rvm.io | bash -s stable
 RUN /usr/local/rvm/bin/rvm-shell -c "rvm install 2.1.4"
 #RUN rvm install 2.1.4
-USER redmine
+#USER redmine
 RUN wget http://www.redmine.org/releases/redmine-3.0.4.tar.gz
 RUN tar zxf redmine-3.0.4.tar.gz -C /opt/redmine
 RUN rm redmine-3.0.4.tar.gz
 RUN ln -s /opt/redmine/redmine-3.0.4 redmine
+RUN chown -R redmine:redmine redmine
+RUN chown -R redmine:redmine /opt/redmine
 USER root
 RUN chmod -R 777 /opt/redmine/redmine-3.0.4/tmp/cache
 
@@ -70,8 +72,8 @@ RUN chmod 600 /etc/apt/sources.list.d/passenger.list
 RUN apt-get update
 RUN apt-get install -y libapache2-mod-passenger
 RUN echo "PassengerUserSwitching on" >> /etc/apache2/mods-available/passenger.conf
-RUN echo "PassengerUser on" >> /etc/apache2/mods-available/passenger.conf
-RUN echo "PassengerGroup on" >> /etc/apache2/mods-available/passenger.conf
+RUN echo "PassengerUser redmine" >> /etc/apache2/mods-available/passenger.conf
+RUN echo "PassengerGroup redmine" >> /etc/apache2/mods-available/passenger.conf
 RUN echo "<Directory /var/www/html/redmine>" >> /etc/apache2/sites-available/000-default.conf
 RUN echo "    RailsBaseURI /redmine" >> /etc/apache2/sites-available/000-default.conf
 RUN echo "    PassengerResolveSymlinksInDocumentRoot on" >> /etc/apache2/sites-available/000-default.conf
@@ -84,4 +86,4 @@ RUN gem install bundler
 ADD database.yml /redmine/config/database.yml
 RUN cd redmine;bundle install --without development test postgresql sqlite
 ADD init_redmine.sql /opt
-#CMD ["/bin/bash", "/opt/start.sh"]
+CMD ["/bin/bash", "/opt/start.sh"]
